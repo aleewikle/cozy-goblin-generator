@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Cozy Goblin Generator</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: #e9ead8; color: #344631; font-family: Georgia, serif; }
+    main { width: min(100%, 650px); background: #fffaf0; padding: 36px; border: 3px solid #859476; border-radius: 22px; box-shadow: 8px 9px 0 #cad0b5; text-align: center; }
+    .mushroom { font-size: 54px; margin: 0; }
+    h1 { font-size: clamp(30px, 6vw, 46px); margin: 8px 0; }
+    .intro { line-height: 1.5; color: #69745a; }
+    button { border: 0; border-radius: 12px; background: #a95543; color: white; padding: 15px 24px; font: bold 17px Georgia, serif; cursor: pointer; margin: 15px 0; }
+    button:hover { background: #853c30; }
+    button:focus-visible { outline: 3px solid #344631; outline-offset: 4px; }
+    .card { background: #f0efdc; border: 1px solid #d4d3b7; border-radius: 14px; padding: 24px; margin-top: 18px; text-align: left; }
+    .card h2 { margin: 0 0 15px; text-align: center; font-size: 32px; }
+    .card p { line-height: 1.6; margin: 12px 0; }
+    .footer { font-size: 13px; color: #7c846c; margin-top: 22px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="mushroom" aria-hidden="true">🍄🌿</p>
+    <h1>The Cozy Goblin Generator</h1>
+    <p class="intro">Deep in the mossy woods, a very official goblin registry awaits. Discover your goblin self!</p>
+    <button id="generate" type="button">Discover Your Goblin Self ✨</button>
+    <section id="result" class="card" aria-live="polite" hidden>
+      <h2 id="goblin-name"></h2>
+      <p><strong>🌱 Woodland occupation:</strong> <span id="job"></span></p>
+      <p><strong>🔮 Magical possession:</strong> <span id="item"></span></p>
+      <p><strong>🐸 Personality:</strong> <span id="personality"></span></p>
+    </section>
+    <p class="footer">Made with moss, mushrooms, and questionable magic.</p>
+  </main>
+  <script>
+    const firstNames = ["Boggle", "Thistle", "Mossy", "Pip", "Nettle", "Wizzle", "Cricket", "Fern"];
+    const lastNames = ["Fernwhistle", "Mudbottom", "Toadstool", "Bogsniffer", "Mossbucket", "Crumbsnatch", "Twiggle", "Puddlefoot"];
+    const jobs = ["Assistant Cloud Taster", "Mushroom Tax Collector", "Professional Puddle Inspector", "Keeper of Suspicious Jars", "Acorn Librarian", "Chief Moss Fluffer", "Frog Negotiator"];
+    const items = ["a cursed teaspoon", "a very judgmental frog", "one enchanted acorn, currently on its lunch break", "a pebble of questionable importance", "a tiny hat for emergencies", "a jar of moonlight", "three mysterious buttons"];
+    const personalities = ["Surprisingly nimble for someone carrying so many emergency crumbs.", "Believes every problem can be solved with soup.", "Collects shiny things and refuses to explain why.", "Has strong opinions about the correct way to greet a mushroom.", "Friendly, unless you insult their favorite puddle.", "Once challenged a squirrel to a duel and lost gracefully."];
+    const pick = list => list[Math.floor(Math.random() * list.length)];
+    const button = document.getElementById("generate");
+    button.addEventListener("click", () => {
+      document.getElementById("goblin-name").textContent = `${pick(firstNames)} ${pick(lastNames)}`;
+      document.getElementById("job").textContent = pick(jobs);
+      document.getElementById("item").textContent = pick(items);
+      document.getElementById("personality").textContent = pick(personalities);
+      document.getElementById("result").hidden = false;
+      button.textContent = "Generate Again ↻";
+    });
+  </script>
+</body>
+</html>
