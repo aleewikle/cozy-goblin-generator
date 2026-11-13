@@ -9,11 +9,18 @@ The Cozy Goblin Generator is a whimsical web application that creates randomized
 
 ## Features
 
-- Randomly generated goblin identities
+- Randomly generated goblin identities and portraits
 - Funny woodland occupations
 - Magical possessions
 - Cozy, storybook-inspired design
 - Unlimited goblin generations
+- Runs locally in your browser without a backend or database
+
+## How to Use
+1) Download index.html.
+2) Open the file in your web browser.
+3) Click Discover Your Goblin Self to generate an identity.
+4) Click Generate Again to discover another goblin.
 
 ## Built With
 
@@ -21,4 +28,4 @@ HTML, CSS, and JavaScript, with assistance from AI-powered coding tools.
 
 ## Project Status
 
-Under development.
+Version 2 complete — randomized goblin portraits added.
